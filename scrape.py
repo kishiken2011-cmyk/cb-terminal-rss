@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from feedgen.feed import FeedGenerator
-from datetime import datetime
+from datetime import datetime, timezone
 import re
 
 def scrape_cb_terminal():
@@ -44,7 +44,7 @@ def scrape_cb_terminal():
             'title': title,
             'url': article_url,
             'description': title,
-            'pubDate': datetime.now()
+            'pubDate': datetime.now(timezone.utc)
         }
         articles.append(article)
     
